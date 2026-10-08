@@ -10,8 +10,16 @@ const envSchema = z.object({
   LOG_LEVEL: z.enum(['fatal', 'error', 'warn', 'info', 'debug', 'trace', 'silent']).default('info'),
   CORS_ORIGIN: z
     .string()
-    .default('*')
-    .transform((value) => value.split(',').map((origin) => origin.trim()).filter(Boolean)),
+    .default('http://localhost:5173')
+    .transform((value) =>
+      value
+        .split(',')
+        .map((origin) => origin.trim())
+        .filter(Boolean),
+    ),
+
+  BETTER_AUTH_URL: z.url(),
+  BETTER_AUTH_SECRET: z.string().min(32),
 });
 
 const parsed = envSchema.safeParse(process.env);

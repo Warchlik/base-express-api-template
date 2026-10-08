@@ -1,0 +1,14 @@
+
+{$SITE_ADDRESS:localhost} {
+	encode zstd gzip
+
+	reverse_proxy {$API_UPSTREAM:api:3000} {
+		health_uri /health
+		health_interval 10s
+	}
+
+	log {
+		output stdout
+		format json
+	}
+}

@@ -1,0 +1,7 @@
+node_modules
+dist
+pnpm-lock.yaml
+
+# generated: drizzle-kit migrations and the better-auth CLI schema
+src/db/migrations
+src/db/schema/auth-schema.ts
