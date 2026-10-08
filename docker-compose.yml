@@ -76,30 +76,6 @@ services:
       api:
         condition: service_healthy
 
-  # nginx:
-  #   image: nginx:1.31.6-alpine3.24
-  #   container_name: nginx
-  #   restart: unless-stopped
-  #   environment:
-  #     - NGINX_PORT_HTTP=${NGINX_PORT_HTTP}
-  #     - NGINX_PORT_HTTPS=${NGINX_PORT_HTTPS}
-  #     - APP_WEB_NAME=${APP_WEB_NAME}
-  #     - BACKEND_NGINX_PORT=${BACKEND_NGINX_PORT}
-  #     - BACKEND_NGINX_NAME=${BACKEND_NGINX_NAME}
-  #   ports:
-  #     - '${NGINX_PORT_HTTP}:${NGINX_PORT_HTTP}'
-  #     - '${NGINX_PORT_HTTPS}:${NGINX_PORT_HTTPS}'
-  #   volumes:
-  #     - shared:/usr/share/nginx/html
-  #     - ./fullchain.pem:/etc/nginx/conf.d/fullchain.pem
-  #     - ./privkey.pem:/etc/nginx/conf.d/privkey.pem
-  #     - ./nginx.conf:/etc/nginx/templates/default.conf.template
-  #     # - ./docker/nginx-selfsigned.crt:/etc/nginx/conf.d/nginx-selfsigned.crt
-  #     # - ./docker/nginx-selfsigned.key:/etc/nginx/conf.d/nginx-selfsigned.key
-  #   depends_on:
-  #     api:
-  #       condition: service_healthy
-
 volumes:
   pgdata:
   shared:
