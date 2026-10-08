@@ -1,6 +1,5 @@
 import { STATUS_CODES } from 'node:http';
 
-/** 404 -> "NOT_FOUND", 413 -> "PAYLOAD_TOO_LARGE". */
 export function codeFromStatus(statusCode: number): string {
   const text = STATUS_CODES[statusCode] ?? 'Error';
   return text.toUpperCase().replace(/[^A-Z0-9]+/g, '_');

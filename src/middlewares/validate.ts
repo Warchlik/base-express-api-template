@@ -12,12 +12,7 @@ type Schemas<P extends ZodType, Q extends ZodType, B extends ZodType> = {
   body?: B;
 };
 
-/**
- * The returned handler is typed with the *parsed* output of the given schemas, so a controller
- * declared as `Request<ExampleIdParams, Res, Body, Query>` composes with it without casts.
- * A source without a schema keeps express's default type for it.
- * (`any` as response body: validate never sends one, and it must not narrow the controller's.)
- */
+
 export function validate<
   P extends ZodType = ZodType<Request['params']>,
   Q extends ZodType = ZodType<Request['query']>,
