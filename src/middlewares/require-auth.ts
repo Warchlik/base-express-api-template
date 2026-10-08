@@ -3,7 +3,8 @@ import type { RequestHandler } from 'express';
 import { auth } from '../lib/auth.ts';
 import { AppError } from '../utils/app-error.ts';
 
-export const requireAuth: RequestHandler = async (req, res, next) => {
+// Reads neither params, query nor body, so it must not narrow them for the rest of the route chain.
+export const requireAuth: RequestHandler<any, any, any, any> = async (req, res, next) => {
   const session = await auth.api.getSession({
     headers: fromNodeHeaders(req.headers),
   });

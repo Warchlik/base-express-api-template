@@ -1,7 +1,7 @@
 {
   "name": "base-express-ts-api-template",
   "version": "1.0.0",
-  "description": "",
+  "description": "Simple template for building a REST API with Express and TypeScript. With Drizzle ORM and PostgreSQL support. Includes Docker and Caddy for deployment.",
   "type": "module",
   "main": "dist/server.js",
   "scripts": {
@@ -17,7 +17,7 @@
     "db:studio": "drizzle-kit studio"
   },
   "keywords": [],
-  "author": "",
+  "author": "Warchlik (Szymon Wardak)",
   "license": "ISC",
   "packageManager": "pnpm@10.33.0",
   "dependencies": {

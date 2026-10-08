@@ -12,8 +12,7 @@ import routes from './routes/index.ts';
 
 export const app = express();
 
-// Behind a reverse proxy (nginx/caddy): trust exactly one hop so req.ip
-// and the rate limiter see the real client, not the proxy.
+// INFO: for Caddy
 app.set('trust proxy', 1);
 
 app.use(
@@ -33,7 +32,10 @@ app.get('/health', (_req: Request, res: Response) => {
   res.json({ status: 'ok' });
 });
 
-app.use(cors({ origin: env.CORS_ORIGIN, credentials: true }));
+app.use(cors({ 
+  origin: env.CORS_ORIGIN, 
+  credentials: true 
+}));
 app.use(
   rateLimit({
     windowMs: 15 * 60 * 1000,
